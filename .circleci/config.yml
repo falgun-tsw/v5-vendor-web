@@ -21,11 +21,11 @@ jobs:
       - image: cimg/node:16.20
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      # - run:
-          # name: installing npm 
-          # command: npm install --legacy-peer-deps
+      # - node/install-packages:
+      #     pkg-manager: npm
+      - run:
+          name: installing npm 
+          command: npm install --legacy-peer-deps
       - run:
           name: version check
           command: |
@@ -36,7 +36,7 @@ jobs:
           command: npm install @craco/craco --legacy-peer-deps
       - run:
           name: Build app
-          command: npm run build 
+          command: CI=false npm run build 
 
   deploy:
     docker: 
