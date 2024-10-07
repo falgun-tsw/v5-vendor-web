@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.0.0
+  node: circleci/node@6.1.0
   aws-s3: circleci/aws-s3@4.0.0
 
 workflows: 
@@ -23,6 +23,11 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
+      - run:
+          name: version check
+          command: |
+            node -v
+            npm -v    
       - run:
           name: installing craco
           command: npm install @craco/craco --legacy-peer-deps
