@@ -21,8 +21,11 @@ jobs:
       - image: cimg/node:16.20
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+      # - node/install-packages:
+          # pkg-manager: npm
+      - run:
+          name: installing npm 
+          command: npm install    
       - run:
           name: version check
           command: |
