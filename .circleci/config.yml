@@ -24,6 +24,9 @@ jobs:
       # - node/install-packages:
           # pkg-manager: npm
       - run:
+          name: Clean node_modules
+          command: rm -rf node_modules
+      - run:
           name: installing npm 
           command: npm install --legacy-peer-deps
       - run:
