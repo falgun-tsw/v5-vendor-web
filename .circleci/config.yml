@@ -24,9 +24,9 @@ jobs:
       # - node/install-packages:
       #     pkg-manager: npm
       - restore_cache:
-          key: 
-            - v1-deps-{{ checksum "package-lock.json" }}
-            - v1-deps-
+              keys: 
+                - v1-deps-{{ checksum "package-lock.json" }}
+                - v1-deps-
       - run:
           name: installing npm 
           command: npm install --legacy-peer-deps
