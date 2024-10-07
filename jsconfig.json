@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@app/component/*": ["src/components/*"],
+      "@app/config/*": ["src/config/*"],
+      "@app/container/*": ["src/containers/*"],
+      "@app/helper/*": ["src/helper/*"],
+      "@app/pages/*": ["src/pages/*"],
+      "@app/stores/*": ["src/stores/*"],
+      "@app/navigator/*": ["src/navigator/*"],
+      "@app/util/*": ["src/util/*"],
+      "@app/FormElements/*": ["src/FormElements/*"],
+      "app/*": ["src/FormElements/app/*"]
+    }
+  }
+}

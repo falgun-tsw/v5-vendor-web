@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v5-global-vendor-web
+  namespace: prod
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: v5-global-vendor-web
+  template:
+    metadata:
+      labels:
+        app: v5-global-vendor-web
+    spec:
+      containers:
+        - name: v5-global-vendor-web
+          image: 392288302288.dkr.ecr.ap-south-1.amazonaws.com/vendor_web_prod:latest
+          imagePullPolicy: Always
+          tty: true
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+      imagePullSecrets:
+        - name: ecr-v5prod-auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: v5-global-vendor-web
+  namespace: prod
+spec:
+  ports:
+    - port: 3000
+  selector:
+    app: v5-global-vendor-web

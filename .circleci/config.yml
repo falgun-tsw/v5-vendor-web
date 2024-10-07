@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@6.1.0
+  aws-s3: circleci/aws-s3@4.0.0
+
+workflows: 
+  build-deploy: 
+    jobs:
+      - build_app
+      - deploy:
+          requires:
+            - build_app
+          filters:
+            branches:
+              only: main
+
+jobs: 
+  build_app:
+    docker: 
+      - image: cimg/node:20.17.0
+    steps:
+      - checkout
+      # - node/install-packages:
+      #     pkg-manager: npm
+      - run:
+          name: Build app
+          command: npm run build 
+
+  deploy:
+    docker: 
+      - image: cimg/node:20.17.0
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run: 
+          name: Install aws cli
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y awscli
+      - run:
+          name: Build app
+          command: npm run build 
+      - run:
+          name: List Build Directory
+          command: ls -la build 
+      - run:
+          name: Deploy to S3
+          command: |
+            aws s3 sync build s3://$S3_BUCKET --region $AWS_REGION
