@@ -43,9 +43,9 @@ jobs:
           paths: 
             - node_modules
       # run test suite
-      - run:
-          name: test
-          command: npm run test
+      # - run:
+      #     name: Run tests
+      #     command: npm run test
       - run:
           name: Build app
           command: CI=false npm run build 

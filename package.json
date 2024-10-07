@@ -75,6 +75,7 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.1.0"
+    "@craco/craco": "^7.1.0",
+    "react-test-renderer": "^18.3.1"
   }
 }

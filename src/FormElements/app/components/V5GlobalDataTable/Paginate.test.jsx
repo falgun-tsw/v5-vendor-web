@@ -1,6 +1,6 @@
 import React from 'react'
 import { cleanup, render, screen } from '@testing-library/react'
-import renderer from 'react-test-renderer'
+import  renderer from 'react-test-renderer'
 import '@testing-library/jest-dom'
 
 import Paginate from 'src/FormElements/app/components/V5GlobalDataTable/Paginate'
