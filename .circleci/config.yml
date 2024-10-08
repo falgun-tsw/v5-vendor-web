@@ -28,6 +28,15 @@ jobs:
                 - v1-deps-{{ checksum "package-lock.json" }}
                 - v1-deps-
       - run:
+          name: installing ajv 
+          command: npm install ajv --legacy-peer-deps
+      - run:
+          name: installing material-ui/core 
+          command: npm install @material-ui/core --legacy-peer-deps
+      - run:
+          name: installing react-test-renderer 
+          command: npm install --save-dev react-test-renderer --legacy-peer-deps
+      - run:
           name: installing npm 
           command: npm install --legacy-peer-deps
       - run:
