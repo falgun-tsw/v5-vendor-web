@@ -80,7 +80,7 @@ function DrawerFilterPopup(props) {
         let copyOfFilters;
         if (fltr) {
             copyOfFilters = [...fltr];
-            let employeeIdIndex = copyOfFilters.findIndex((obj => obj.componentId == "employeeId"));
+            let employeeIdIndex = copyOfFilters.findIndex((obj => obj.componentId === "employeeId"));
             let userNameIndex = copyOfFilters.findIndex((obj => obj.componentId === "userName"));
             let rolesIndex = copyOfFilters.findIndex((obj => obj.componentId === "role"));
             if (employeeIdIndex > -1) {
